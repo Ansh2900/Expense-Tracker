@@ -1,4 +1,4 @@
-# PixelWallet - Full Stack Expense Tracker
+# YOUR'S WALLET - Expense Tracker
 
 A professional, full-stack expense tracking application designed for Semester 4 Software Engineering Technology students. This project demonstrates secure authentication, database management, RESTful APIs, and interactive data visualization.
 

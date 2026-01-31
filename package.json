@@ -1,5 +1,5 @@
 {
-  "name": "pixel-wallet-expense-tracker",
+  "name": "yours-wallet-expense-tracker",
   "version": "1.0.0",
   "description": "A professional full-stack expense tracker with analytics.",
   "main": "server.js",
