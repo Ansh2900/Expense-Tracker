@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | PixelWallet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="brand">
+                <h2>PixelWallet</h2>
+            </div>
+            <div class="user-info">
+                <span id="user-greeting">Hello, User</span>
+                <button id="logout-btn" class="btn-logout">Logout</button>
+            </div>
+        </header>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+            <div class="card">
+                <span class="card-title">My Balance</span>
+                <span class="card-value" id="total-balance">$0.00</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Income</span>
+                <span class="card-value income-val" id="total-income">$0.00</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Expenses</span>
+                <span class="card-value expense-val" id="total-expense">$0.00</span>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <!-- Left Side: Transactions & Analytics -->
+            <div class="left-column">
+                <!-- Analytics Section -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Analytics</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="mainChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>All Transactions</h3>
+                        <!-- Optional Export Button could go here -->
+                        <button id="export-btn" class="btn-logout"
+                            style="color: #4F46E5; background: #EEF2FF; border-color: #C7D2FE;">Export CSV</button>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactions-body">
+                                <!-- JS will populate this -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Add Transaction & Category Breakdown -->
+            <div class="right-column">
+                <!-- Add Transaction -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Add Transaction</h3>
+                    </div>
+                    <form id="add-transaction-form" class="add-form">
+                        <input type="text" id="t-description" placeholder="Description (e.g. Starbucks)" required>
+                        <input type="number" step="0.01" id="t-amount" placeholder="Amount (e.g. 5.50)" required>
+                        <input type="date" id="t-date" required>
+                        <select id="t-category" required>
+                            <!-- JS Pulls Categories -->
+                        </select>
+                        <button type="submit" class="btn btn-primary">Add Transaction</button>
+                        <div id="add-error" style="color: red; font-size: 0.8rem; margin-top: 5px;"></div>
+                    </form>
+                </div>
+
+                <!-- Category Chart -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Breakdown</h3>
+                    </div>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/dashboard.js"></script>
+    <script src="js/demo_tour.js"></script>
+</body>
+
+</html>
